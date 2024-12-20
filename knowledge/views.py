@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.conf import settings
 
 from knowledge.models import NormalUser, Asker, Expert, Question
 from .redis_utils import get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data
@@ -10,7 +9,6 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import authenticate, logout
-from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
@@ -49,37 +47,14 @@ def expert_dashboard(request):
     if request.user.is_authenticated:
         normal_user = request.user
         # 获取当前登录用户的专家信息
-        try:
-            ownername = NormalUser.objects.get(name=normal_user)
-            expert = Expert.objects.get(owner=ownername)
-            
-            # 获取专家被分配的任务（问题）
-            assigned_questions = expert.assigned_tasks.all()  # 获取专家被分配的问题列表
-            
-            context = {
-                'expert': expert,
-                'assigned_questions': assigned_questions,  # 传递给模板
-            }
-            return render(request, 'knowledge/expert_dashboard.html', context)  # 渲染专家专属页面
-        except NormalUser.DoesNotExist:
-            # 用户不存在，返回错误页面或重定向
-            return render(request, 'error.html')
+        ownername = NormalUser.objects.get(name=normal_user)
+        expert = Expert.objects.get(owner=ownername)
 
-def get_question_details(request, question_id):
-    try:
-        # 获取指定id的问题
-        question = Question.objects.get(id=question_id)
-        # 返回问题的相关信息
-        data = {
-            'title': question.title,
-            'description': question.content,
-            'id': question.id,
+        context = {
+            'expert': expert,  # 将专家信息传递到模板
         }
-        return JsonResponse(data)  # 返回json格式的响应
-    except Question.DoesNotExist:
-        return JsonResponse({'error': '问题不存在'}, status=404)
-    
-    
+        return render(request, 'knowledge/expert_dashboard.html', context)  # 专家专属页面
+
 def inquirer_dashboard(request):
     if request.user.is_authenticated:
         normal_user = request.user
@@ -108,7 +83,6 @@ def inquirer_dashboard(request):
             'questions': questions,
         }
     return render(request, 'knowledge/inquirer_dashboard.html', context)  # 提问者专属页面
-
 def login_in(request):
     if request.method == 'GET':
         return render(request, 'knowledge/login.html')
@@ -146,50 +120,22 @@ def logout_(request):
 	logout(request)
 	return redirect('/accounting/login')
 
-# @login_required
 def submit_answer(request):
     if request.method == 'POST':
-        # 获取问题ID和提交的答案
+        answer_text = request.POST.get('answer')
         question_id = request.POST.get('question_id')
-        answer = request.POST.get('answer')
+        
+        # question = Question.objects.get(id=question_id)
 
-        try:
-            # 获取问题对象
-            question = Question.objects.get(id=question_id)
+        # 创建并保存答案
+        # answer = Answer.objects.create(question=question, expert=request.user.expert, text=answer_text)
 
-            # 获取当前登录的专家对象
-            expert = Expert.objects.get(owner=request.user)
+        # 更新问题状态
+        # question.status = 'answered'
+        # question.save()
 
-            # 确保该问题已经分配给当前专家
-            if question in expert.assigned_tasks.all():
-                # 更新问题的回答
-                question.answered_by = expert
-                question.answer = answer
-                question.answered = True
-                question.save()
-
-                # 从专家的已分配任务中移除该问题
-                expert.assigned_tasks.remove(question)
-
-                # 从专家的效用列表中移除该问题的效用
-                expert.assigned_tasks_utilities = [utility for utility in expert.assigned_tasks_utilities if utility['task_id'] != question.id]
-
-                expert.save()  # 保存专家信息
-                return redirect('expert_dashboard')  # 回到专家首页
-
-            else:
-                return JsonResponse({'error': '该问题未分配给您'}, status=403)
-
-        except Question.DoesNotExist:
-            return JsonResponse({'error': '问题不存在'}, status=404)
-        except Expert.DoesNotExist:
-            return JsonResponse({'error': '专家信息不存在'}, status=404)
-
-    return JsonResponse({'error': '无效请求'}, status=400)
+        return redirect('expert_dashboard')  # 跳转到专家页面
     
-def test_graph_view(request):
-    graph_data = get_graph_data()
-    return JsonResponse(graph_data, safe=False)
     
 def medical_org_detail(request, org_id):
     """
@@ -255,39 +201,59 @@ from django.shortcuts import render, redirect
 import json
 import random
 import os
+import jieba
 
 def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
-
     # 初始化可信度
     theta = 0.5  # 初始可信度，假设为0.5
 
     def e_step(questions, user_answers, theta):
-
+        """
+        E步：分词并计算每个问题的回答匹配的概率
+        """
         probabilities = []
         for i, question in enumerate(questions):
             correct_answer = question['answer']
             user_answer = user_answers[i]
 
-            # 假设用户答对问题的概率是 theta
-            # 如果用户的答案与正确答案匹配，则认为用户答对问题
-            correct = 1 if user_answer == correct_answer else 0
-            probabilities.append(correct * theta + (1 - correct) * (1 - theta))
+            # 使用jieba对正确答案和用户答案进行分词
+            correct_answer_words = set(jieba.cut(correct_answer))
+            user_answer_words = set(jieba.cut(user_answer))
+
+            # 计算分词后的交集（匹配的部分）
+            intersection = correct_answer_words.intersection(user_answer_words)
+
+            # 计算匹配的概率，匹配的单词越多，可信度越高
+            match_probability = len(intersection) / len(correct_answer_words) if len(correct_answer_words) > 0 else 0
+
+            # 根据匹配的程度调整概率
+            probabilities.append(match_probability * theta + (1 - match_probability) * (1 - theta))
 
         return probabilities
 
     def m_step(probabilities, user_answers):
+        """
+        M步：根据E步的概率计算新的可信度theta
+        """
+        correct_count = 0
+        for i, prob in enumerate(probabilities):
+            # 如果用户的答案匹配正确答案，增加可信度
+            if user_answers[i] == questions[i]['answer']:
+                correct_count += prob
 
-        correct_count = sum(
-            probabilities[i] * (1 if user_answers[i] == questions[i]['answer'] else 0) for i in range(len(questions)))
+        # 更新theta为加权平均值
         theta = correct_count / len(questions)
         return theta
 
     # 迭代执行E步和M步
     for iteration in range(max_iter):
+        # 计算E步：更新每个问题的响应概率
         probabilities = e_step(questions, user_answers, theta)
+
+        # 计算M步：根据E步的概率更新theta
         new_theta = m_step(probabilities, user_answers)
 
-        # 检查收敛
+        # 检查收敛：如果theta变化很小，则停止迭代
         if abs(new_theta - theta) < tolerance:
             break
 
@@ -297,9 +263,12 @@ def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
 
 
 def questionare(request):
-    
     # 构造 question.json 文件的路径
     file_path = os.path.join(settings.BASE_DIR, "question.json")
+
+    # 读取文件内容
+    with open(file_path, "r", encoding="utf-8") as file:
+        questions_data = json.load(file)
 
     # 读取文件内容
     with open(file_path, "r", encoding="utf-8") as file:
@@ -322,6 +291,7 @@ def questionare(request):
             try:
                 expert = Expert.objects.get(owner=ownername)
                 expert.credibility = credibility  # 更新可信度
+                expert.questionare_done = True
                 expert.save()
             except Expert.DoesNotExist:
                 pass  # 如果专家记录不存在，则忽略
