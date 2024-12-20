@@ -216,6 +216,7 @@ def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
             correct_answer = question['answer']
             user_answer = user_answers[i]
 
+
             # 使用jieba对正确答案和用户答案进行分词
             correct_answer_words = set(jieba.cut(correct_answer))
             user_answer_words = set(jieba.cut(user_answer))
