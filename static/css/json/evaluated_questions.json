@@ -3,6 +3,7 @@
         "question": "杭州 滨江 刘 玉良 中医 诊所 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州滨江刘玉良中医诊所",
@@ -36,6 +37,7 @@
         "question": "杭州 东仁堂 东宁 综合 门诊部 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州东仁堂东宁综合门诊部",
@@ -69,6 +71,7 @@
         "question": "杭州市 临安区 中医院 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市临安区中医院",
@@ -102,6 +105,7 @@
         "question": "\" 浙江省 杭州市 西湖区 最 好 的 医疗 机构 是 什么 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -109,6 +113,7 @@
         "question": "杭州 余杭 西洋桥 中医 门诊部 有限公司 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余杭西洋桥中医门诊部有限公司",
@@ -142,6 +147,7 @@
         "question": "浙江 工商 大学 杭州 商学院 医务室 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "浙江工商大学杭州商学院医务室",
@@ -175,6 +181,7 @@
         "question": "浙江 交通 职业 技术 学院 卫生所 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江交通职业技术学院卫生所",
@@ -208,6 +215,7 @@
         "question": "杭州 佰圣 精选 药房 有限公司 拱墅 湖州街 中医 诊所 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州佰圣精选药房有限公司拱墅湖州街中医诊所",
@@ -241,6 +249,7 @@
         "question": "杭州 扶阳堂 健康 管理 咨询 有限公司 月明 中医 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州扶阳堂健康管理咨询有限公司月明中医诊所",
@@ -274,6 +283,7 @@
         "question": "杭州 朗颐 护理院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州朗颐护理院",
@@ -307,6 +317,7 @@
         "question": "杭州 胡庆余堂 健康 科技 有限公司 益汇路 中医 诊所 在 杭州市 上城区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州胡庆余堂健康科技有限公司益汇路中医诊所",
@@ -340,6 +351,7 @@
         "question": "浙江 大学 医学院 附属 第一 医院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江大学医学院附属第一医院",
@@ -373,6 +385,7 @@
         "question": "如何 前往 杭州市 下城区 的 杭州 孝福 健康 管理 有限公司 三墩 医疗 门诊部 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州孝福健康管理有限公司三墩医疗门诊部",
@@ -406,6 +419,7 @@
         "question": "杭州市 江干区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -413,6 +427,7 @@
         "question": "浙江 美奥 口腔 门诊部 有限公司 杭州 学院路 口腔 门诊部 在 杭州市 江干区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "浙江美奥口腔门诊部有限公司杭州学院路口腔门诊部",
@@ -446,6 +461,7 @@
         "question": "杭州 余 泽斋 如晓 中医 诊所 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余泽斋如晓中医诊所",
@@ -479,6 +495,7 @@
         "question": "杭州 余慧堂 中医 诊所 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余慧堂中医诊所",
@@ -512,6 +529,7 @@
         "question": "杭州 菁华 妇儿 医院 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.6,
         "entities": [
             {
                 "label": "杭州菁华妇儿医院",
@@ -540,6 +558,7 @@
         "question": "杭州 秋平 健康 管理 有限公司 丽贝 口腔 诊所 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州秋平健康管理有限公司丽贝口腔诊所",
@@ -573,6 +592,7 @@
         "question": "杭州 爱牙 口腔 门诊部 有限公司 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州爱牙口腔门诊部有限公司",
@@ -606,6 +626,7 @@
         "question": "杭州 珍爱 医疗 门诊部 有限公司 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州珍爱医疗门诊部有限公司",
@@ -639,6 +660,7 @@
         "question": "杭州 皮康 诊所 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州皮康诊所",
@@ -672,6 +694,7 @@
         "question": "杭州市 余杭区 闲林 街道 社区 卫生 服务 中心 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市余杭区闲林街道社区卫生服务中心",
@@ -705,6 +728,7 @@
         "question": "浙江 中医药 大学 附属 口腔 医院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江中医药大学附属口腔医院",
@@ -738,6 +762,7 @@
         "question": "杭州 众安 医养 投资 管理 有限公司 萧山 山水苑 诊所 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州众安医养投资管理有限公司萧山山水苑诊所",
@@ -771,6 +796,7 @@
         "question": "浙江 外国语 学院 小和山 校区 医务室 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江外国语学院小和山校区医务室",
@@ -804,6 +830,7 @@
         "question": "浙江 大学 医学院 附属 第一 医院 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "浙江大学医学院附属第一医院",
@@ -837,6 +864,7 @@
         "question": "杭州 剑慧 草堂 中医 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州剑慧草堂中医门诊部",
@@ -870,6 +898,7 @@
         "question": "杭州 惠雅 口腔 诊所 有限公司 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州惠雅口腔诊所有限公司",
@@ -903,6 +932,7 @@
         "question": "如何 前往 杭州市 西湖区 的 杭州 健安 医疗 门诊部 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州健安医疗门诊部",
@@ -936,6 +966,7 @@
         "question": "杭州 葆臻堂 健康 管理 有限公司 古墩路 中医 诊所 在 杭州市 西湖区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州葆臻堂健康管理有限公司古墩路中医诊所",
@@ -969,6 +1000,7 @@
         "question": "杭州 丽致 口腔 门诊部 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州丽致口腔门诊部",
@@ -1002,6 +1034,7 @@
         "question": "浙江省 妇幼 和 生殖 保健 中心 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江省妇幼和生殖保健中心",
@@ -1035,6 +1068,7 @@
         "question": "杭州 文溪 鼎园 口腔 门诊部 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州文溪鼎园口腔门诊部",
@@ -1068,6 +1102,7 @@
         "question": "杭州 厚泽 健康 管理 有限公司 余杭 世纪 大道 口腔 诊所 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.6,
         "entities": [
             {
                 "label": "杭州厚泽健康管理有限公司余杭世纪大道口腔诊所",
@@ -1096,6 +1131,7 @@
         "question": "浙江省 乔司 监狱 医院 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江省乔司监狱医院",
@@ -1129,6 +1165,7 @@
         "question": "杭州 傅同春堂 中医 门诊部 有限公司 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州傅同春堂中医门诊部有限公司",
@@ -1162,6 +1199,7 @@
         "question": "杭州市 西溪 医院 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市西溪医院",
@@ -1195,6 +1233,7 @@
         "question": "杭州市 下城区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -1202,6 +1241,7 @@
         "question": "杭州 嘉年 健康 管理 有限公司 萧山 综合 门诊部 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州嘉年健康管理有限公司萧山综合门诊部",
@@ -1235,6 +1275,7 @@
         "question": "杭州 华方 医疗 投资 管理 有限公司 格畈家园 诊所 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州华方医疗投资管理有限公司格畈家园诊所",
@@ -1263,6 +1304,7 @@
         "question": "杭州 广成 中医 门诊部 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州广成中医门诊部",
@@ -1296,6 +1338,7 @@
         "question": "杭州 伟云 健康 管理 有限公司 正合 口腔 门诊部 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州伟云健康管理有限公司正合口腔门诊部",
@@ -1329,6 +1372,7 @@
         "question": "杭州 中兴 医院 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州中兴医院",
@@ -1362,6 +1406,7 @@
         "question": "杭州 广延寿堂 中医 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州广延寿堂中医门诊部",
@@ -1395,6 +1440,7 @@
         "question": "杭州 杏联 医疗 管理 有限公司 体育场路 医疗 门诊部 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州杏联医疗管理有限公司体育场路医疗门诊部",
@@ -1428,6 +1474,7 @@
         "question": "杭州 江城 骨科 医院 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州江城骨科医院",
@@ -1461,6 +1508,7 @@
         "question": "杭州 （ 国际 ） 牙科 医院 在 杭州市 西湖区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州（国际）牙科医院",
@@ -1494,6 +1542,7 @@
         "question": "杭州 瑞金 门诊部 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州瑞金门诊部",
@@ -1527,6 +1576,7 @@
         "question": "杭州 行易堂 凤起 中医 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州行易堂凤起中医门诊部",
@@ -1560,6 +1610,7 @@
         "question": "杭州 源芝 中医 门诊部 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州源芝中医门诊部",
@@ -1593,6 +1644,7 @@
         "question": "杭州 伟云 健康 管理 有限公司 正合 口腔 门诊部 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州伟云健康管理有限公司正合口腔门诊部",
@@ -1626,6 +1678,7 @@
         "question": "杭州 深蓝华家池 健康 管理 有限公司 世茂 天宸 口腔 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州深蓝华家池健康管理有限公司世茂天宸口腔门诊部",
@@ -1659,6 +1712,7 @@
         "question": "杭州市 拱墅区 半山 街道 社区 卫生 服务 中心 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市拱墅区半山街道社区卫生服务中心",
@@ -1692,6 +1746,7 @@
         "question": "杭州市 滨江区 浦沿 街道 社区 卫生 服务 中心 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市滨江区浦沿街道社区卫生服务中心",
@@ -1725,6 +1780,7 @@
         "question": "杭州 因普朗 健康 管理 有限公司 杭印街 口腔 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州因普朗健康管理有限公司杭印街口腔门诊部",
@@ -1758,6 +1814,7 @@
         "question": "杭州 江干 和康 第二 康复 医院 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州江干和康第二康复医院",
@@ -1791,6 +1848,7 @@
         "question": "杭州市 拱墅区 桃源 社区 卫生 服务 中心 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市拱墅区桃源社区卫生服务中心",
@@ -1824,6 +1882,7 @@
         "question": "杭州 西湖 雅康 口腔 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州西湖雅康口腔门诊部",
@@ -1857,6 +1916,7 @@
         "question": "杭州 橡树留和 医院 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州橡树留和医院",
@@ -1890,6 +1950,7 @@
         "question": "浙江 康静 医院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江康静医院",
@@ -1923,6 +1984,7 @@
         "question": "中大 金石朗和 （ 杭州 ） 护理院 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "中大金石朗和（杭州）护理院",
@@ -1956,6 +2018,7 @@
         "question": "杭州 易加 医康福 综合 门诊部 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州易加医康福综合门诊部",
@@ -1989,6 +2052,7 @@
         "question": "杭州 西湖 叶 青峰 中医 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州西湖叶青峰中医诊所",
@@ -2022,6 +2086,7 @@
         "question": "杭州 麦缇斯 健康 管理 有限公司 金华路 口腔 门诊部 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州麦缇斯健康管理有限公司金华路口腔门诊部",
@@ -2055,6 +2120,7 @@
         "question": "杭州 德奥 健康 管理 有限公司 昊轩 口腔 诊所 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州德奥健康管理有限公司昊轩口腔诊所",
@@ -2088,6 +2154,7 @@
         "question": "杭州 上城 泰仁堂 中医 门诊部 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州上城泰仁堂中医门诊部",
@@ -2121,6 +2188,7 @@
         "question": "杭州 树康汇泉 康复 医院 在 杭州市 上城区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州树康汇泉康复医院",
@@ -2154,6 +2222,7 @@
         "question": "杭州 灸允堂 中医 诊所 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州灸允堂中医诊所",
@@ -2187,6 +2256,7 @@
         "question": "杭州 广杏林 健康 管理 有限公司 春秋北路 中医 诊所 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州广杏林健康管理有限公司春秋北路中医诊所",
@@ -2220,6 +2290,7 @@
         "question": "杭州 余杭 南 一 堂 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余杭南一堂门诊部",
@@ -2253,6 +2324,7 @@
         "question": "杭州 学林 诊所 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州学林诊所",
@@ -2286,6 +2358,7 @@
         "question": "如何 前往 杭州市 江干区 的 杭州 鹤济堂 中医 连锁 有限公司 环站东路 中医 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州鹤济堂中医连锁有限公司环站东路中医诊所",
@@ -2319,6 +2392,7 @@
         "question": "杭州 胡庆余堂 国药号 有限公司 良渚 文化村 中医 诊所 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州胡庆余堂国药号有限公司良渚文化村中医诊所",
@@ -2352,6 +2426,7 @@
         "question": "杭州 宸巍 医疗 科技 有限公司 丰登街 中医 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州宸巍医疗科技有限公司丰登街中医诊所",
@@ -2385,6 +2460,7 @@
         "question": "西湖区 翠苑 街道 翠苑 四 区 社区 卫生 服务站 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "西湖区翠苑街道翠苑四区社区卫生服务站",
@@ -2418,6 +2494,7 @@
         "question": "杭州市 万塘路 256 号 省 计生 综合 楼区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -2425,6 +2502,7 @@
         "question": "杭州 鹤济堂 中医 连锁 有限公司 机场路 中医 诊所 在 杭州市 古墩路 598 号 同人 广场 D 座区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州鹤济堂中医连锁有限公司机场路中医诊所",
@@ -2458,6 +2536,7 @@
         "question": "国家 电网 公司 职业病 防治院 杭州 水澄 医务室 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "国家电网公司职业病防治院杭州水澄医务室",
@@ -2491,6 +2570,7 @@
         "question": "杭州 西湖 吴 向阳 口腔 诊所 在 杭州市 桐庐县 环城东路 77 号 区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州西湖吴向阳口腔诊所",
@@ -2524,6 +2604,7 @@
         "question": "如何 前往 杭州市 西湖区 的 杭州 下城 和 康元 中医 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州下城和康元中医诊所",
@@ -2557,6 +2638,7 @@
         "question": "杭州 乐维 口腔 门诊部 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州乐维口腔门诊部",
@@ -2590,6 +2672,7 @@
         "question": "杭州 菁菁 中医 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州菁菁中医诊所",
@@ -2623,6 +2706,7 @@
         "question": "如何 前往 杭州市 拱墅区 的 杭州 艾维 乾元 口腔 门诊部 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州艾维乾元口腔门诊部",
@@ -2656,6 +2740,7 @@
         "question": "杭州 余杭 本治 中医 门诊部 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余杭本治中医门诊部",
@@ -2689,6 +2774,7 @@
         "question": "杭州市 西湖区 蒋村 街道 社区 卫生 服务 中心 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市西湖区蒋村街道社区卫生服务中心",
@@ -2722,6 +2808,7 @@
         "question": "杭州市 拱墅区 拱宸桥 街道 社区 卫生 服务 中心 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市拱墅区拱宸桥街道社区卫生服务中心",
@@ -2755,6 +2842,7 @@
         "question": "杭州 凯丽 健康 咨询 有限公司 丽江 公寓 诊所 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州凯丽健康咨询有限公司丽江公寓诊所",
@@ -2788,6 +2876,7 @@
         "question": "如何 前往 杭州市 拱墅区 的 杭州 请 来 医院 管理 有限公司 三里亭 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州请来医院管理有限公司三里亭诊所",
@@ -2821,6 +2910,7 @@
         "question": "杭州 贝源 健康 管理 有限公司 益乐路 口腔 诊所 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州贝源健康管理有限公司益乐路口腔诊所",
@@ -2854,6 +2944,7 @@
         "question": "如何 前往 杭州市 富阳区 的 杭州 广和 口腔 门诊部 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州广和口腔门诊部",
@@ -2887,6 +2978,7 @@
         "question": "杭州 久保 中医 门诊部 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州久保中医门诊部",
@@ -2920,6 +3012,7 @@
         "question": "杭州市 桐庐县 环城东路 77 号 区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -2927,6 +3020,7 @@
         "question": "如何 前往 杭州市 滨江区 的 杭州 请 来 医院 管理 有限公司 三里亭 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州请来医院管理有限公司三里亭诊所",
@@ -2960,6 +3054,7 @@
         "question": "杭州 西湖 高 建宇 口腔 诊所 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州西湖高建宇口腔诊所",
@@ -2993,6 +3088,7 @@
         "question": "杭州 品凯 健康 管理 有限公司 丁桥 口腔 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州品凯健康管理有限公司丁桥口腔门诊部",
@@ -3026,6 +3122,7 @@
         "question": "杭州 萧山 胡 庆余堂 国药号 中医 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州萧山胡庆余堂国药号中医门诊部",
@@ -3059,6 +3156,7 @@
         "question": "杭州 佳运 健康 管理 有限公司 余杭 闲林 和睦路 口腔 诊所 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州佳运健康管理有限公司余杭闲林和睦路口腔诊所",
@@ -3092,6 +3190,7 @@
         "question": "浙江 天天好 大 药房 连锁 有限公司 杭州 莫干山路 医疗 门诊部 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "浙江天天好大药房连锁有限公司杭州莫干山路医疗门诊部",
@@ -3125,6 +3224,7 @@
         "question": "杭州 易云 口腔 门诊部 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州易云口腔门诊部",
@@ -3158,6 +3258,7 @@
         "question": "杭州 利济堂 中医 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州利济堂中医门诊部",
@@ -3191,6 +3292,7 @@
         "question": "杭州 名一 口腔 门诊部 在 杭州市 江干区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州名一口腔门诊部",
@@ -3224,6 +3326,7 @@
         "question": "浙江 优你可 妇科 门诊部 有限公司 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江优你可妇科门诊部有限公司",
@@ -3257,6 +3360,7 @@
         "question": "杭州 方回春堂 同心 中医 门诊部 有限公司 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州方回春堂同心中医门诊部有限公司",
@@ -3290,6 +3394,7 @@
         "question": "杭州 萧山 云草 中医 门诊部 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州萧山云草中医门诊部",
@@ -3323,6 +3428,7 @@
         "question": "杭州 瑞雅 投资 管理 有限公司 欣雅 口腔 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.6,
         "entities": [
             {
                 "label": "杭州瑞雅投资管理有限公司欣雅口腔门诊部",
@@ -3351,6 +3457,7 @@
         "question": "杭州 奥尔 健康 管理 有限公司 留下 大街 口腔 诊所 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州奥尔健康管理有限公司留下大街口腔诊所",
@@ -3384,6 +3491,7 @@
         "question": "杭州 佳凌 医院 管理 有限公司 文晖 口腔 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州佳凌医院管理有限公司文晖口腔门诊部",
@@ -3417,6 +3525,7 @@
         "question": "杭州 中和 风湿 免疫 专科 门诊部 有限公司 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州中和风湿免疫专科门诊部有限公司",
@@ -3450,6 +3559,7 @@
         "question": "杭州 文品 健康 管理 有限公司 天城东路 口腔 门诊部 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州文品健康管理有限公司天城东路口腔门诊部",
@@ -3483,6 +3593,7 @@
         "question": "浙江 老 干部 活动 中心 医务室 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江老干部活动中心医务室",
@@ -3516,6 +3627,7 @@
         "question": "杭州 文品 健康 管理 有限公司 天城东路 口腔 门诊部 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州文品健康管理有限公司天城东路口腔门诊部",
@@ -3549,6 +3661,7 @@
         "question": "杭州 吉彩 牙艺秀 口腔 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州吉彩牙艺秀口腔诊所",
@@ -3582,6 +3695,7 @@
         "question": "杭州 行易堂 中医 门诊部 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州行易堂中医门诊部",
@@ -3615,6 +3729,7 @@
         "question": "杭州市 下城区 慈惠 老年 护理院 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市下城区慈惠老年护理院",
@@ -3648,6 +3763,7 @@
         "question": "\" 浙江省 杭州市 西湖区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -3655,6 +3771,7 @@
         "question": "杭州市 江干区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -3662,6 +3779,7 @@
         "question": "杭州市 萧山区 临江 街道 社区 卫生 服务 中心 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市萧山区临江街道社区卫生服务中心",
@@ -3695,6 +3813,7 @@
         "question": "杭州市 拱墅区 小河湖墅 街道 社区 卫生 服务 中心 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市拱墅区小河湖墅街道社区卫生服务中心",
@@ -3728,6 +3847,7 @@
         "question": "杭州 丽都 白癜风 皮肤病 医院 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州丽都白癜风皮肤病医院",
@@ -3761,6 +3881,7 @@
         "question": "杭州 杭医堂 中医 诊所 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州杭医堂中医诊所",
@@ -3794,6 +3915,7 @@
         "question": "杭州 瑞驰 健康 管理 有限公司 周坪路 口腔 门诊部 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州瑞驰健康管理有限公司周坪路口腔门诊部",
@@ -3827,6 +3949,7 @@
         "question": "杭州 桐春 中医 门诊部 有限公司 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州桐春中医门诊部有限公司",
@@ -3860,6 +3983,7 @@
         "question": "树兰 ( 杭州 ) 医院 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "树兰(杭州)医院",
@@ -3893,6 +4017,7 @@
         "question": "杭州市 滨江区 长河 街道 社区 卫生 服务 中心 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市滨江区长河街道社区卫生服务中心",
@@ -3926,6 +4051,7 @@
         "question": "杭州 睿兴堂 中医 诊所 有限公司 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州睿兴堂中医诊所有限公司",
@@ -3959,6 +4085,7 @@
         "question": "杭州 青尔 口腔 门诊部 有限公司 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州青尔口腔门诊部有限公司",
@@ -3992,6 +4119,7 @@
         "question": "杭州 济邻 健康 管理 有限公司 湖畔 花园 门诊部 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州济邻健康管理有限公司湖畔花园门诊部",
@@ -4025,6 +4153,7 @@
         "question": "如何 前往 杭州市 滨江区 的 杭州市 萧山区 新湾 街道 社区 卫生 服务 中心 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市萧山区新湾街道社区卫生服务中心",
@@ -4058,6 +4187,7 @@
         "question": "如何 前往 杭州市 江干区 的 杭州 爱牙 口腔 门诊部 有限公司 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州爱牙口腔门诊部有限公司",
@@ -4091,6 +4221,7 @@
         "question": "杭州 下城 付 淑萍 口腔 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州下城付淑萍口腔诊所",
@@ -4124,6 +4255,7 @@
         "question": "杭州 瑞雅 投资 管理 有限公司 欣雅 口腔 门诊部 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州瑞雅投资管理有限公司欣雅口腔门诊部",
@@ -4152,6 +4284,7 @@
         "question": "浙江 家家 健康 控股 股份 有限公司 余杭 南苑 龙湖路 诊所 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.6,
         "entities": [
             {
                 "label": "浙江家家健康控股股份有限公司余杭南苑龙湖路诊所",
@@ -4180,6 +4313,7 @@
         "question": "杭州 君喏 口腔 诊所 有限公司 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州君喏口腔诊所有限公司",
@@ -4213,6 +4347,7 @@
         "question": "杭州 胡 庆余堂 第二 中医 门诊部 有限公司 ( 原 庆余 中医 门诊部 ） 在 杭州市 西湖区 的 地址 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州胡庆余堂第二中医门诊部有限公司(原庆余中医门诊部）",
@@ -4246,6 +4381,7 @@
         "question": "杭州 博纳 口腔 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州博纳口腔门诊部",
@@ -4279,6 +4415,7 @@
         "question": "杭州 立扬 口腔 门诊部 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州立扬口腔门诊部",
@@ -4312,6 +4449,7 @@
         "question": "杭州 常青树 中医 门诊部 有限公司 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州常青树中医门诊部有限公司",
@@ -4345,6 +4483,7 @@
         "question": "杭州 二义 健康 管理 有限公司 海达南路 中医 诊所 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州二义健康管理有限公司海达南路中医诊所",
@@ -4378,6 +4517,7 @@
         "question": "如何 前往 杭州市 余杭区 的 杭州 民利 健康 管理 有限公司 新塘路 口腔 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州民利健康管理有限公司新塘路口腔诊所",
@@ -4411,6 +4551,7 @@
         "question": "中国 人民 财产 保险 股份 有限公司 浙江省 分公司 卫生站 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "中国人民财产保险股份有限公司浙江省分公司卫生站",
@@ -4444,6 +4585,7 @@
         "question": "浙江 家家 健康 控股 股份 有限公司 萧山 育才 诊所 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 2.0,
         "entities": [
             {
                 "label": "浙江家家健康控股股份有限公司萧山育才诊所",
@@ -4477,6 +4619,7 @@
         "question": "杭州市 余杭区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -4484,6 +4627,7 @@
         "question": "浙江 水利水电 学院 卫生所 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江水利水电学院卫生所",
@@ -4517,6 +4661,7 @@
         "question": "杭州 西湖 口腔 医院 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州西湖口腔医院",
@@ -4550,6 +4695,7 @@
         "question": "杭州 品凯 健康 管理 有限公司 丰潭路 口腔 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州品凯健康管理有限公司丰潭路口腔诊所",
@@ -4583,6 +4729,7 @@
         "question": "杭州 余杭 西西瑚 综合 门诊部 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州余杭西西瑚综合门诊部",
@@ -4616,6 +4763,7 @@
         "question": "杭州市 滨江区 有 哪些 推荐 的 医疗 机构 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -4623,6 +4771,7 @@
         "question": "杭州 开璞 健康 管理 有限公司 武林路 口腔 门诊部 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州开璞健康管理有限公司武林路口腔门诊部",
@@ -4656,6 +4805,7 @@
         "question": "杭州 嘉年 健康 管理 有限公司 萧山 综合 门诊部 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州嘉年健康管理有限公司萧山综合门诊部",
@@ -4689,6 +4839,7 @@
         "question": "杭州 丽都 白癜风 皮肤病 医院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州丽都白癜风皮肤病医院",
@@ -4722,6 +4873,7 @@
         "question": "浙江省 肿瘤 医院 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江省肿瘤医院",
@@ -4755,6 +4907,7 @@
         "question": "杭州 众意 口腔 门诊部 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州众意口腔门诊部",
@@ -4788,6 +4941,7 @@
         "question": "杭州 恩琪 健康 管理 咨询 有限公司 萍水街 中西医 结合 诊所 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州恩琪健康管理咨询有限公司萍水街中西医结合诊所",
@@ -4821,6 +4975,7 @@
         "question": "如何 前往 杭州市 拱墅区 的 杭州 东仁堂 芳仁 中医 诊所 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州东仁堂芳仁中医诊所",
@@ -4854,6 +5009,7 @@
         "question": "杭州 囿雅 健康 管理 有限公司 紫阳 口腔 门诊部 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州囿雅健康管理有限公司紫阳口腔门诊部",
@@ -4887,6 +5043,7 @@
         "question": "杭州 拱墅区 大关东 二 社区 卫生 服务站 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州拱墅区大关东二社区卫生服务站",
@@ -4920,6 +5077,7 @@
         "question": "杭州 佳齿 健康 管理 有限公司 小河 口腔 诊所 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州佳齿健康管理有限公司小河口腔诊所",
@@ -4953,6 +5111,7 @@
         "question": "杭州 前进 中医 门诊部 ( 原 农工党 浙江 省委 杭州 中医 门诊部 ) 的 电话 号码 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州前进中医门诊部(原农工党浙江省委杭州中医门诊部)",
@@ -4986,6 +5145,7 @@
         "question": "杭州 胡 庆余堂 第二 中医 门诊部 有限公司 ( 原 庆余 中医 门诊部 ） 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州胡庆余堂第二中医门诊部有限公司(原庆余中医门诊部）",
@@ -5019,6 +5179,7 @@
         "question": "杭州 （ 国际 ） 牙科 医院 是否 提供 24 小时 急诊 服务 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 1.8,
         "entities": [
             {
                 "label": "杭州（国际）牙科医院",
@@ -5052,6 +5213,7 @@
         "question": "杭州 西湖 朝聚 眼科 医院 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州西湖朝聚眼科医院",
@@ -5085,6 +5247,7 @@
         "question": "浙江 家家 健康 控股 股份 有限公司 萧山 城北 诊所 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "浙江家家健康控股股份有限公司萧山城北诊所",
@@ -5118,6 +5281,7 @@
         "question": "杭州 胡庆余堂 国药号 有限公司 半山 诊所 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州胡庆余堂国药号有限公司半山诊所",
@@ -5151,6 +5315,7 @@
         "question": "杭州 德聚顺 健康 管理 有限公司 余杭 南苑 藕花洲 大街 诊所 是否 有 自营 的 药房 ？",
         "is_valuable": true,
         "difficulty_score": 1,
+        "utility_ratio": 2.0,
         "entities": [
             {
                 "label": "杭州德聚顺健康管理有限公司余杭南苑藕花洲大街诊所",
@@ -5184,6 +5349,7 @@
         "question": "杭州 怡宁 医院 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州怡宁医院",
@@ -5217,6 +5383,7 @@
         "question": "杭州 雅齿 健康 管理 有限公司 运新 口腔 诊所 的 级别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州雅齿健康管理有限公司运新口腔诊所",
@@ -5250,6 +5417,7 @@
         "question": "杭州 存真 健康 管理 有限公司 萧山 江南 星城 中医 诊所 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州存真健康管理有限公司萧山江南星城中医诊所",
@@ -5283,6 +5451,7 @@
         "question": "杭州 东仁堂 东 临 口腔 诊所 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州东仁堂东临口腔诊所",
@@ -5316,6 +5485,7 @@
         "question": "杭州 善禾堂 中医 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州善禾堂中医门诊部",
@@ -5349,6 +5519,7 @@
         "question": "浙江省 女子 监狱 卫生所 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江省女子监狱卫生所",
@@ -5382,6 +5553,7 @@
         "question": "杭州 同鑫堂 中医 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州同鑫堂中医门诊部",
@@ -5415,6 +5587,7 @@
         "question": "杭州 新华路 维信 口腔 门诊部 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州新华路维信口腔门诊部",
@@ -5448,6 +5621,7 @@
         "question": "杭州 一牙 口腔 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州一牙口腔门诊部",
@@ -5481,6 +5655,7 @@
         "question": "杭州 艾博 医疗 门诊部 有限公司 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州艾博医疗门诊部有限公司",
@@ -5514,6 +5689,7 @@
         "question": "杭州 久保 中医 门诊部 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州久保中医门诊部",
@@ -5547,6 +5723,7 @@
         "question": "杭州 德道 中医 健康 管理 有限公司 月明路 中医 诊所 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州德道中医健康管理有限公司月明路中医诊所",
@@ -5580,6 +5757,7 @@
         "question": "杭州市 推拿 医院 （ 杭州市 民福 医院 ） 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州市推拿医院（杭州市民福医院）",
@@ -5613,6 +5791,7 @@
         "question": "杭州 富阳 树康 康复 医院 有限公司 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州富阳树康康复医院有限公司",
@@ -5646,6 +5825,7 @@
         "question": "杭州 拱墅 和睦 护理院 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州拱墅和睦护理院",
@@ -5679,6 +5859,7 @@
         "question": "杭州市 萧山区 最 好 的 医疗 机构 是 什么 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -5686,6 +5867,7 @@
         "question": "杭州 尚善 企业 管理 有限公司 西溪 口腔 门诊部 的 病人 对 这里 的 服务 评价 如何 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "杭州尚善企业管理有限公司西溪口腔门诊部",
@@ -5719,6 +5901,7 @@
         "question": "杭州 怡养 医院 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州怡养医院",
@@ -5752,6 +5935,7 @@
         "question": "杭州 民生 多仁 口腔 门诊部 有限公司 西溪 口腔 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州民生多仁口腔门诊部有限公司西溪口腔门诊部",
@@ -5809,6 +5993,7 @@
         "question": "杭州市 江干区 丁兰 街道 社区 卫生 服务 中心 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市江干区丁兰街道社区卫生服务中心",
@@ -5842,6 +6027,7 @@
         "question": "杭州 秋平 健康 管理 有限公司 丽贝 口腔 诊所 的 级别 是 怎样 的 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州秋平健康管理有限公司丽贝口腔诊所",
@@ -5875,6 +6061,7 @@
         "question": "杭州 上城 泰仁堂 中医 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州上城泰仁堂中医门诊部",
@@ -5908,6 +6095,7 @@
         "question": "杭州 明悦 口腔 门诊部 属于 什么 级别 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州明悦口腔门诊部",
@@ -5941,6 +6129,7 @@
         "question": "杭州 瑞金 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州瑞金门诊部",
@@ -5974,6 +6163,7 @@
         "question": "杭州 家庭 医生 健康 产业 有限公司 天成路 门诊部 的 类别 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州家庭医生健康产业有限公司天成路门诊部",
@@ -6007,6 +6197,7 @@
         "question": "浙江 家家 健康 控股 股份 有限公司 杭州 萧山 闻堰 中医 诊所 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 3,
+        "utility_ratio": 0.6666666666666666,
         "entities": [
             {
                 "label": "浙江家家健康控股股份有限公司杭州萧山闻堰中医诊所",
@@ -6040,6 +6231,7 @@
         "question": "杭州 巧妙 健康 管理 有限公司 天运路 口腔 诊所 属于 哪 一 类 医疗 机构 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州巧妙健康管理有限公司天运路口腔诊所",
@@ -6073,6 +6265,7 @@
         "question": "杭州市 临平区 中西医 结合 医院 是 二级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州市临平区中西医结合医院",
@@ -6106,6 +6299,7 @@
         "question": "杭州市 江干区 最 好 的 医疗 机构 是 什么 ？",
         "is_valuable": false,
         "difficulty_score": 2,
+        "utility_ratio": 0.0,
         "entities": [],
         "relationships": []
     },
@@ -6113,6 +6307,7 @@
         "question": "杭州 鹤济堂 中医 连锁 有限公司 机场路 中医 诊所 是 一级 医疗 机构 吗 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州鹤济堂中医连锁有限公司机场路中医诊所",
@@ -6146,6 +6341,7 @@
         "question": "杭州 下沙 梦欣 综合 门诊部 的 病人 满意度 评分 是 多少 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州下沙梦欣综合门诊部",
@@ -6179,6 +6375,7 @@
         "question": "浙江省 良渚 强制 隔离 戒毒所 医务室 的 地址 在 哪里 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "浙江省良渚强制隔离戒毒所医务室",
@@ -6212,6 +6409,7 @@
         "question": "杭州 贝诺 口腔 诊所 配备 的 先进 的 诊疗 设备 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州贝诺口腔诊所",
@@ -6245,6 +6443,7 @@
         "question": "杭州 名方 中医 门诊部 有限公司 滨盛路 门诊部 提供 的 常用 的 药品 有 哪些 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州名方中医门诊部有限公司滨盛路门诊部",
@@ -6278,6 +6477,7 @@
         "question": "杭州 惠华 医疗 门诊部 拥有 的 最新 的 医疗 设备 是 什么 ？",
         "is_valuable": true,
         "difficulty_score": 2,
+        "utility_ratio": 0.9,
         "entities": [
             {
                 "label": "杭州惠华医疗门诊部",
