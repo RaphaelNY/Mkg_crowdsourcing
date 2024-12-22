@@ -241,7 +241,6 @@ def show_graph_data(request, org_id):
             return JsonResponse({'error': 'No data found for this organization'}, status=404)
         
         # 调试日志
-        print("Graph data:", graph_data)
         
         # 返回数据给前端
         graph_json = {'nodes': graph_data}
