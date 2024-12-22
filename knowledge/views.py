@@ -87,6 +87,21 @@ def inquirer_dashboard(request):
             'questions': questions,
         }
     return render(request, 'knowledge/inquirer_dashboard.html', context)  # 提问者专属页面
+
+def get_question_details(request, question_id):
+    try:
+        # 获取指定id的问题
+        question = Question.objects.get(id=question_id)
+        # 返回问题的相关信息
+        data = {
+            'title': question.title,
+            'description': question.content,
+            'id': question.id,
+        }
+        return JsonResponse(data)  # 返回json格式的响应
+    except Question.DoesNotExist:
+        return JsonResponse({'error': '问题不存在'}, status=404)  # 返回404状态码
+    
 def login_in(request):
     if request.method == 'GET':
         return render(request, 'knowledge/login.html')
