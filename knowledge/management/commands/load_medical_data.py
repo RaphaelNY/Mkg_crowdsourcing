@@ -35,7 +35,7 @@ class Command(BaseCommand):
         # 遍历每个医疗机构，并存储数据到 Redis 和 RedisGraph
         for org in data:
             org_id = org.get('@id')
-            name = org.get('http://www.w3.org/2000/01/rdf-schema#label', [{}])[0].get('@value', '未知')
+            name = org.get('http://www.w3.org/2000/01/rdf-schema#label', [{}])[0].get('@value', '')
             category = org.get('http://cngraph.openkg.cn/#类别', [{}])[0].get('@value', '')
             level = org.get('http://cngraph.openkg.cn/#级别', [{}])[0].get('@value', '')
             address = org.get('http://cnschema.openkg.cn/#地址', [{}])[0].get('@value', '')
@@ -51,9 +51,11 @@ class Command(BaseCommand):
             })
 
             # 存储到 Redis 集合
+            redis_client.sadd(f'name:{name}', org_id)
             redis_client.sadd(f'category:{category}', org_id)
             redis_client.sadd(f'level:{level}', org_id)
             redis_client.sadd(f'address:{address}', org_id)
+            redis_client.sadd(f'phone:{phone}', org_id)
 
             # 添加到 RedisGraph
             org_node = Node(label="MedicalOrg", properties={

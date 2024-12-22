@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.conf import settings
+import urllib
 
 from knowledge.models import NormalUser, Asker, Expert, Question
-from .redis_utils import get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data
+from .redis_utils import get_graph_data_for_org, get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data, get_medical_orgs_by_field
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 def register(request):
     if request.method == 'POST':
@@ -183,6 +187,54 @@ def category_list(request):
     return render(request, "category_list.html", {"categories": categories})
 
 
+@csrf_exempt
+def search_medical_orgs(request):
+    """
+    处理搜索请求，支持根据 name、level、address、phone、category 查询。
+    """
+    if request.method == 'GET':
+        # 获取用户的搜索字段和查询值
+        search_field = request.GET.get('field', '')
+        search_value = request.GET.get('value', '')
+        print(search_field, search_value)
+
+        if not search_field or not search_value:
+            return JsonResponse({'error': 'Missing field or value parameters'}, status=400)
+
+        # 从 Redis 获取对应的医疗机构数据
+        try:
+            orgs = get_medical_orgs_by_field(search_field, search_value)
+            print("Found orgs:", orgs)
+        except Exception as e:
+            return JsonResponse({'error': f'Error fetching data: {str(e)}'}, status=500)
+
+        # 返回医疗机构列表
+        return JsonResponse({'orgs': orgs})
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+@csrf_exempt
+def show_graph_data(request, org_id):
+    """
+    获取指定医疗机构的图数据，并渲染在页面上
+    """
+    try:
+        decoded_org_id = urllib.parse.unquote(org_id)  # 正确解码 org_id
+        print("Fetching graph data for org:", decoded_org_id)
+        graph_data = get_graph_data_for_org(decoded_org_id)
+        if not graph_data:
+            return JsonResponse({'error': 'No data found for this organization'}, status=404)
+        
+        # 调试日志
+        print("Graph data:", graph_data)
+        
+        # 返回数据给前端
+        graph_json = {'nodes': graph_data}
+        return JsonResponse(graph_json)
+
+    except Exception as e:
+        print("Error fetching graph data:", str(e))
+        return JsonResponse({'error': f'Error fetching graph data: {str(e)}'}, status=500)
 
 
 
@@ -292,7 +344,7 @@ def questionare(request):
             try:
                 expert = Expert.objects.get(owner=ownername)
                 expert.credibility = credibility  # 更新可信度
-                expert.questionare_done = True
+                expert.questionare_done = True  # 标记已完成问卷
                 expert.save()
             except Expert.DoesNotExist:
                 pass  # 如果专家记录不存在，则忽略
