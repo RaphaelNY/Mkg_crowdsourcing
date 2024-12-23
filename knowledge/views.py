@@ -385,6 +385,7 @@ def questionare(request):
             try:
                 expert = Expert.objects.get(owner=ownername)
                 expert.credibility = credibility  # 更新可信度
+                expert.skill_level = calculate_skill_level_from_credibility(credibility)  # 根据可信度计算技能等级
                 expert.questionare_done = True  # 标记已完成问卷
                 expert.save()
             except Expert.DoesNotExist:
@@ -395,3 +396,31 @@ def questionare(request):
 
     # 渲染问题页面
     return render(request, 'knowledge/questionare.html', {'questions': selected_questions})
+
+def calculate_skill_level_from_credibility(credibility):
+    """
+    根据专家的可信度生成技能等级（分段映射）
+    
+    参数：
+        credibility (float): 专家的可信度，范围在 0.0 到 1.0 之间。
+        
+    返回值：
+        skill_level (int): 生成的技能等级，范围在 1 到 10 之间。
+    """
+    # 验证可信度
+    if credibility < 0.0 or credibility > 1.0:
+        raise ValueError("Credibility must be a value between 0.0 and 1.0")
+    
+    # 分段映射
+    if credibility < 0.2:
+        return 1
+    elif credibility < 0.4:
+        return 2
+    elif credibility < 0.6:
+        return 3
+    elif credibility < 0.8:
+        return 4
+    elif credibility < 1.0:
+        return 5
+    else:
+        return 6
