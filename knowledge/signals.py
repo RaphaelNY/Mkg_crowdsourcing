@@ -16,13 +16,13 @@ def handle_question_submission(sender, instance, created, **kwargs):
         dta_algorithm.allocate_tasks(current_time)
 
 # 信号处理函数 - 当专家完成注册时触发
-@receiver(post_save, sender=Expert)
-def handle_expert_registration(sender, instance, created, **kwargs):
-    if created:  # 确保是新注册的专家
-        print(f"New expert registered: {instance.expert_id}")
-        current_time = timezone.now()
-        dta_algorithm = DTAAlgorithm(method='Greedy')  # 选择分配方法
-        dta_algorithm.allocate_tasks(current_time)
+# @receiver(post_save, sender=Expert)
+# def handle_expert_registration(sender, instance, created, **kwargs):
+#   if created:  # 确保是新注册的专家
+#       print(f"New expert registered: {instance.expert_id}")
+#        current_time = timezone.now()
+#        dta_algorithm = DTAAlgorithm(method='Greedy')  # 选择分配方法
+#        dta_algorithm.allocate_tasks(current_time)
 
 # 信号处理函数 - 当专家回答完问题时触发
 @receiver(post_save, sender=Question)

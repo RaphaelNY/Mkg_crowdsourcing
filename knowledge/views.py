@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import urllib
 
+from knowledge.DTA_utils import DTAAlgorithm
 from knowledge.models import NormalUser, Asker, Expert, Question
 from .redis_utils import get_graph_data_for_org, get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data, get_medical_orgs_by_field
 from django.shortcuts import render
@@ -388,6 +389,10 @@ def questionare(request):
                 expert.skill_level = calculate_skill_level_from_credibility(credibility)  # 根据可信度计算技能等级
                 expert.questionare_done = True  # 标记已完成问卷
                 expert.save()
+                
+                current_time = timezone.now()
+                dta_algorithm = DTAAlgorithm(method='Greedy')  # 你可以根据需要选择不同的分配方法
+                dta_algorithm.allocate_tasks(current_time)
             except Expert.DoesNotExist:
                 pass  # 如果专家记录不存在，则忽略
 
