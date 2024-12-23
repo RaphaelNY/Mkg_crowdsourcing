@@ -1,14 +1,12 @@
 from datetime import timedelta
 from django.utils import timezone
-from django.shortcuts import render
-from django.http import JsonResponse
 from django.conf import settings
 import urllib
-
+from django.db import transaction
 from knowledge.DTA_utils import DTAAlgorithm
 from knowledge.models import NormalUser, Asker, Expert, Question
 from .redis_utils import get_graph_data_for_org, get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data, get_medical_orgs_by_field
-from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -150,19 +148,35 @@ def logout_(request):
 	return redirect('/accounting/login')
 
 
+from django.shortcuts import redirect
+from django.core.exceptions import ObjectDoesNotExist
+
+
 def submit_answer(request):
     if request.method == 'POST':
+        # 获取当前登录用户
         normal_user = request.user
+
         # 获取当前登录用户的专家信息
-        ownername = NormalUser.objects.get(name=normal_user)
-        expert = Expert.objects.get(owner=ownername)
+        try:
+            ownername = NormalUser.objects.get(name=normal_user)
+            expert = Expert.objects.get(owner=ownername)
+        except NormalUser.DoesNotExist or Expert.DoesNotExist:
+            return JsonResponse({'error': 'User or Expert not found'}, status=404)
 
         # 获取提交的答案和问题ID
         answer_text = request.POST.get('answer')
         question_id = request.POST.get('question_id')
 
         # 获取问题对象
-        question = Question.objects.get(id=question_id)
+        try:
+            question = Question.objects.get(id=question_id)
+        except Question.DoesNotExist:
+            return JsonResponse({'error': 'Question not found'}, status=404)
+
+        # 检查问题是否已经回答
+        if question.answered:
+            return JsonResponse({'error': 'This question has already been answered'}, status=400)
 
         # 保存答案
         question.answer = answer_text
@@ -177,27 +191,31 @@ def submit_answer(request):
             # 移除与该问题关联的效用值
             expert.assigned_tasks_utilities = [
                 utility for utility in expert.assigned_tasks_utilities
-                if utility['task_id'] != question.id
+                if utility.get('task_id') != question.id
             ]
-
-        # 更新专家可信度
-        utility = question.utility
-        difficulty = question.difficulty
-
-        # 计算可信度增长值
-        credibility_increase = utility / (difficulty + 1)
+            expert.save()
 
         # 更新专家的可信度
-        expert.credibility = min(1.0, expert.credibility + credibility_increase)  # 最大值为 1.0
-        expert.save()
+        utility = question.utility
+        difficulty = question.difficulty
+        current_credibility = float(expert.credibility)
+        # 计算可信度增长值
+        credibility_increase = utility / (difficulty + 1)/10
 
-        # 保存问题
-        question.save()
+        # 更新专家的可信度，最大值为 1.0
+        expert.credibility = min(1.0, current_credibility + credibility_increase)
+
+        # 使用事务确保一致性
+        with transaction.atomic():
+            # 保存问题和专家的更新
+            question.save()
+            expert.save()
 
         # 跳转回专家页面
-        return redirect('expert_dashboard')  # 跳转到专家面板
+        return redirect('expert_dashboard')
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
 
 def medical_org_detail(request, org_id):
     """
@@ -373,16 +391,12 @@ def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
 
 
 def questionare(request):
-    # 构造 question.json 文件的路径
-    file_path = os.path.join(settings.BASE_DIR, "question.json")
 
     # 读取文件内容
-    with open(file_path, "r", encoding="utf-8") as file:
+    with open(r"C:\Users\86131\Desktop\question.json", "r", encoding="utf-8") as file:
         questions_data = json.load(file)
 
-    # 读取文件内容
-    with open(file_path, "r", encoding="utf-8") as file:
-        questions_data = json.load(file)
+
 
     # 随机抽取 15 个问题
     selected_questions = random.sample(questions_data, 15)
