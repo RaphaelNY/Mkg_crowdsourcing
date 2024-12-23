@@ -50,14 +50,14 @@
 					<div id="question-details">
 						<p> 问题描述:  </p>
 					</div>
-		
+
 					<!-- 回答框 -->
 					<div id="answer-section">
 						<h6>回答问题</h6>
 						<form method="POST" action="{% url 'submit_answer' %}">
 							{% csrf_token %}
 							<!-- 隐藏字段，传递问题ID -->
-							<input type="hidden" name="question_id" value="{{ question.id }}">
+							<input type="hidden" id="question-id" name="question_id" value="">
 							<textarea name="answer" class="form-control" rows="5" placeholder="请输入您的答案" required></textarea>
 							<button type="submit" class="btn btn-primary mt-2">提交答案</button>
 						</form>
@@ -92,27 +92,28 @@
 	</div>
 </body>
 <script type="text/javascript">
-    // 使用Ajax加载问题详情
-    function loadQuestionDetails(questionId) {
-        // 向后台请求问题的详细信息
-        fetch(`../question/details/${questionId}/`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert('问题加载失败');
-                } else {
-                    // 更新问题信息框
-                    document.querySelector('#question-details').innerHTML = `
-                        <p> 问题描述: ${data.description}</p>
-                    `;
-                    // 可以根据需要，填充回答框或其他信息
-                }
-            })
-            .catch(error => {
-                console.error('加载问题详情失败:', error);
-                alert('加载问题详情失败');
-            });
-    }
+   // 使用Ajax加载问题详情
+	function loadQuestionDetails(questionId) {
+		// 向后台请求问题的详细信息
+		fetch(`../question/details/${questionId}/`)
+			.then(response => response.json())
+			.then(data => {
+				if (data.error) {
+					alert('问题加载失败');
+				} else {
+					// 更新问题信息框
+					document.querySelector('#question-details').innerHTML = `
+						<p> 问题描述: ${data.description}</p>
+					`;
+					// 动态更新隐藏字段的值
+					document.querySelector('#question-id').value = questionId;
+				}
+			})
+			.catch(error => {
+				console.error('加载问题详情失败:', error);
+				alert('加载问题详情失败');
+			});
+	}
 </script>
 <script>
 	// 搜索表单提交事件

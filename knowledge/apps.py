@@ -10,9 +10,9 @@ class KnowledgeConfig(AppConfig):
         
         print("KnowledgeConfig.ready() is being executed")
         
-        call_command('DTA_init')
         # call_command('import_questions')
-
+        call_command('DTA_init')
+        
         # 检查 Redis 是否已加载数据，避免重复加载
         if os.getenv('RUN_MAIN', None) != 'true':  # 避免开发服务器重复加载
             try:
