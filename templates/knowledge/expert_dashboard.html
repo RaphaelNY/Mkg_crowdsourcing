@@ -34,7 +34,7 @@
 					<ul class="list-group">
 						{% for question in assigned_questions %}
 							<li class="list-group-item" data-id="{{ question.id }}" onclick="loadQuestionDetails({{ question.id }})">
-								{{ question.title }}
+								{{ question.content }}
 							</li>
 						{% empty %}
 							<li class="list-group-item">没有待回答的问题。</li>
@@ -95,7 +95,7 @@
     // 使用Ajax加载问题详情
     function loadQuestionDetails(questionId) {
         // 向后台请求问题的详细信息
-        fetch(`/question/details/${questionId}/`)
+        fetch(`../question/details/${questionId}/`)
             .then(response => response.json())
             .then(data => {
                 if (data.error) {

@@ -55,9 +55,11 @@ def expert_dashboard(request):
         # 获取当前登录用户的专家信息
         ownername = NormalUser.objects.get(name=normal_user)
         expert = Expert.objects.get(owner=ownername)
+        assigned_questions = expert.assigned_tasks.all()  # 获取所有分配的任务
 
         context = {
             'expert': expert,  # 将专家信息传递到模板
+            'assigned_questions': assigned_questions,  # 将分配的任务传递到模板
         }
         return render(request, 'knowledge/expert_dashboard.html', context)  # 专家专属页面
 
