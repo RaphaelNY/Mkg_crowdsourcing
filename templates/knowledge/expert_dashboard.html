@@ -48,7 +48,6 @@
 				<div class="card right-card-1">
 					<h5>问题详情</h5>
 					<div id="question-details">
-						<p> 问题标题:  </p>
 						<p> 问题描述:  </p>
 					</div>
 		
@@ -104,7 +103,6 @@
                 } else {
                     // 更新问题信息框
                     document.querySelector('#question-details').innerHTML = `
-                        <p> 问题标题: ${data.title}</p>
                         <p> 问题描述: ${data.description}</p>
                     `;
                     // 可以根据需要，填充回答框或其他信息

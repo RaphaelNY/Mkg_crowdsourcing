@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(NormalUser)
 admin.site.register(Asker)
 admin.site.register(Expert)
+admin.site.register(Question)

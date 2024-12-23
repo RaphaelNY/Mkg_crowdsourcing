@@ -68,27 +68,31 @@ def inquirer_dashboard(request):
         asker = Asker.objects.get(owner=ownername)
         questions = Question.objects.filter(asked_by=asker)
         
-        # 处理表单提交
-        if request.method == 'POST':
-            title = request.POST.get('title')
-            content = request.POST.get('content')
-
-            # 创建新的问题
-            new_question = Question.objects.create(
-                title=title,
-                content=content,
-                asked_by=asker,
-                answered=False
-            )
-
-            # 重定向到当前页面，确保新问题显示
-            return redirect('inquirer_dashboard')
-        
         context = {
             'asker': asker,
             'questions': questions,
         }
     return render(request, 'knowledge/inquirer_dashboard.html', context)  # 提问者专属页面
+
+@login_required
+def handle_submit(request):
+    if request.method == 'POST':
+        content = request.POST.get('content')  # 获取表单中问题的内容
+        if content:
+            normal_user = request.user
+            ownername = NormalUser.objects.get(name=normal_user)
+            asker = Asker.objects.get(owner=ownername)
+            
+            # 创建新的 Question 对象并保存
+            question = Question(
+                content=content,
+                arrival_date=timezone.now(),
+                deadline=timezone.now() + timedelta(days=3),  # 默认3天的截止时间
+                asked_by=asker
+            )
+            question.save()
+
+    return redirect('inquirer_dashboard')
 
 def get_question_details(request, question_id):
     try:
@@ -96,7 +100,6 @@ def get_question_details(request, question_id):
         question = Question.objects.get(id=question_id)
         # 返回问题的相关信息
         data = {
-            'title': question.title,
             'description': question.content,
             'id': question.id,
         }
@@ -145,17 +148,22 @@ def logout_(request):
 
 def submit_answer(request):
     if request.method == 'POST':
+        normal_user = request.user
+        # 获取当前登录用户的专家信息
+        ownername = NormalUser.objects.get(name=normal_user)
+        expert = Expert.objects.get(owner=ownername)
         answer_text = request.POST.get('answer')
         question_id = request.POST.get('question_id')
         
-        # question = Question.objects.get(id=question_id)
+        question = Question.objects.get(id=question_id)
 
         # 创建并保存答案
-        # answer = Answer.objects.create(question=question, expert=request.user.expert, text=answer_text)
+        question.answer = answer_text
 
         # 更新问题状态
-        # question.status = 'answered'
-        # question.save()
+        question.answered = True
+        question.answered_by = expert
+        question.save()
 
         return redirect('expert_dashboard')  # 跳转到专家页面
     

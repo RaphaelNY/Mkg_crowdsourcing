@@ -44,7 +44,7 @@ class Question(models.Model):
     answer = models.TextField(null=True, blank=True)  # 只有在回答后才会有内容
 
     def __str__(self):
-        return self.title
+        return self.content
     
 class Expert(models.Model):
     owner = models.ForeignKey(NormalUser, on_delete=models.SET_NULL, null=True)

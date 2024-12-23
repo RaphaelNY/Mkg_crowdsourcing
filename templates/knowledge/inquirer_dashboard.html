@@ -29,7 +29,6 @@
 					<table border="1">
 						<thead>
 							<tr>
-								<th>问题标题</th>
 								<th>问题内容</th>
 								<th>是否已回答</th>
 							</tr>
@@ -37,7 +36,6 @@
 						<tbody>
 							{% for question in questions %}
 							<tr>
-								<td>{{ question.title }}</td>
 								<td>{{ question.content }}</td>
 								<td>{% if question.answered %}已回答{% else %}未回答{% endif %}</td>
 							</tr>
@@ -51,12 +49,8 @@
 				<div class="card right-card-1">
 					<!-- 新增提问表单 -->
 					<h2>新增提问</h2>
-					<form method="POST" onsubmit="handleSubmit(event)">
+					<form method="POST" action="{% url 'handleSubmit' %}">
 						{% csrf_token %}
-						<div>
-							<label for="title">问题标题：</label>
-							<input type="text" id="title" name="title" required>
-						</div>
 						<div>
 							<label for="content">问题内容：</label>
 							<textarea id="content" name="content" rows="4" required></textarea>
