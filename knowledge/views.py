@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-
+from django.utils.timezone import now
 def register(request):
     if request.method == 'POST':
         user_name = request.POST.get('username', '')
@@ -70,7 +70,7 @@ def inquirer_dashboard(request):
         ownername = NormalUser.objects.get(name=normal_user)
         asker = Asker.objects.get(owner=ownername)
         questions = Question.objects.filter(asked_by=asker)
-        
+
         context = {
             'asker': asker,
             'questions': questions,
@@ -85,7 +85,7 @@ def handle_submit(request):
             normal_user = request.user
             ownername = NormalUser.objects.get(name=normal_user)
             asker = Asker.objects.get(owner=ownername)
-            
+
             # 创建新的 Question 对象并保存
             question = Question(
                 content=content,
@@ -109,7 +109,7 @@ def get_question_details(request, question_id):
         return JsonResponse(data)  # 返回json格式的响应
     except Question.DoesNotExist:
         return JsonResponse({'error': '问题不存在'}, status=404)  # 返回404状态码
-    
+
 def login_in(request):
     if request.method == 'GET':
         return render(request, 'knowledge/login.html')
@@ -149,24 +149,26 @@ def logout_(request):
 	logout(request)
 	return redirect('/accounting/login')
 
+
 def submit_answer(request):
     if request.method == 'POST':
         normal_user = request.user
         # 获取当前登录用户的专家信息
         ownername = NormalUser.objects.get(name=normal_user)
         expert = Expert.objects.get(owner=ownername)
+
+        # 获取提交的答案和问题ID
         answer_text = request.POST.get('answer')
         question_id = request.POST.get('question_id')
-        
+
+        # 获取问题对象
         question = Question.objects.get(id=question_id)
 
-        # 创建并保存答案
+        # 保存答案
         question.answer = answer_text
-
-        # 更新问题状态
         question.answered = True
         question.answered_by = expert
-        
+
         # 从专家的 assigned_tasks 和 assigned_tasks_utilities 中移除该问题及效用值
         if question in expert.assigned_tasks.all():
             # 移除问题本身
@@ -174,16 +176,29 @@ def submit_answer(request):
 
             # 移除与该问题关联的效用值
             expert.assigned_tasks_utilities = [
-                utility for utility in expert.assigned_tasks_utilities 
+                utility for utility in expert.assigned_tasks_utilities
                 if utility['task_id'] != question.id
             ]
-        
+
+        # 更新专家可信度
+        utility = question.utility
+        difficulty = question.difficulty
+
+        # 计算可信度增长值
+        credibility_increase = utility / (difficulty + 1)
+
+        # 更新专家的可信度
+        expert.credibility = min(1.0, expert.credibility + credibility_increase)  # 最大值为 1.0
         expert.save()
+
+        # 保存问题
         question.save()
 
-        return redirect('expert_dashboard')  # 跳转到专家页面
-    
-    
+        # 跳转回专家页面
+        return redirect('expert_dashboard')  # 跳转到专家面板
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
 def medical_org_detail(request, org_id):
     """
     获取单个医疗机构详情
@@ -267,9 +282,9 @@ def show_graph_data(request, org_id):
         graph_data = get_graph_data_for_org(decoded_org_id)
         if not graph_data:
             return JsonResponse({'error': 'No data found for this organization'}, status=404)
-        
+
         # 调试日志
-        
+
         # 返回数据给前端
         graph_json = {'nodes': graph_data}
         return JsonResponse(graph_json)
@@ -405,17 +420,17 @@ def questionare(request):
 def calculate_skill_level_from_credibility(credibility):
     """
     根据专家的可信度生成技能等级（分段映射）
-    
+
     参数：
         credibility (float): 专家的可信度，范围在 0.0 到 1.0 之间。
-        
+
     返回值：
         skill_level (int): 生成的技能等级，范围在 1 到 10 之间。
     """
     # 验证可信度
     if credibility < 0.0 or credibility > 1.0:
         raise ValueError("Credibility must be a value between 0.0 and 1.0")
-    
+
     # 分段映射
     if credibility < 0.2:
         return 1
