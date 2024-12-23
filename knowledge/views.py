@@ -1,3 +1,5 @@
+from datetime import timedelta
+from django.utils import timezone
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.conf import settings
@@ -125,6 +127,8 @@ def login_in(request):
                     if not expert.questionare_done:
                         return redirect('../questionare/')
                     else:
+                        expert.available_until = timezone.now() + timedelta(days=3)
+                        expert.save()
                         return redirect('../expert_dashboard/')  # 跳转到专家页面
                 elif normal_user.user_type == 'inquirer':
                     return redirect('../inquirer_dashboard/')  # 跳转到提问者页面

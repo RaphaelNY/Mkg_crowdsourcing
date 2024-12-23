@@ -6,7 +6,11 @@ class KnowledgeConfig(AppConfig):
 
     def ready(self):
         from django.core.management import call_command
+        from .management.commands.DTA_init import Command
         import knowledge.signals  # 导入信号模块
+        
+        command = Command()
+        command.handle()
         
         print("KnowledgeConfig.ready() is being executed")
 
