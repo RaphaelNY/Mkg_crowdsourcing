@@ -51,7 +51,7 @@
 				<div class="card right-card-1">
 					<!-- 新增提问表单 -->
 					<h2>新增提问</h2>
-					<form method="POST">
+					<form method="POST" onsubmit="handleSubmit(event)">
 						{% csrf_token %}
 						<div>
 							<label for="title">问题标题：</label>
@@ -195,6 +195,23 @@
 				nodeOverlap: 20
 			}
 		});
+	}
+
+	function handleSubmit(event){
+		event.preventDefault();//阻止表单的默认提交行为
+
+		const form = event.target;
+
+		//使用Axios或其他方式提交表单数据
+		axios.post(form.action,new FormData(form))
+			.then(response => {
+				alert('提交成功！');//提交成功后显示提示消息
+				form.reset();//清空表单
+			})
+			.catch(error => {
+				console.error('提交失败：',error);
+				alert('提交失败，请重试。');//提交失败显示错误消息
+			});
 	}
 	
 </script>
