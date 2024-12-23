@@ -31,7 +31,7 @@ class Question(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     
-    utility = models.IntegerField(default=1) # 效用
+    utility = models.FloatField(default=1.0)
     difficulty = models.IntegerField(default=1) # 任务难度
     
     arrival_date = models.DateTimeField(default=timezone.now)
@@ -49,7 +49,7 @@ class Question(models.Model):
 class Expert(models.Model):
     owner = models.ForeignKey(NormalUser, on_delete=models.SET_NULL, null=True)
     
-    expert_id = models.CharField(max_length=100)
+    expert_id = models.CharField(max_length=100, unique=True)
     max_tasks = models.IntegerField(default=3)
     skill_level = models.IntegerField(default=1)
     
@@ -60,7 +60,12 @@ class Expert(models.Model):
     questionare_done = models.BooleanField(default=False)
     
     assigned_tasks = models.ManyToManyField(Question, blank=True)
-    assigned_tasks_utilities = models.JSONField(default=list)
+    assigned_tasks_utilities = models.JSONField(default=list, null=True)
     
     def __str__(self):
         return f'Expert(id={self.expert_id}, max_tasks={self.max_tasks}, skill_level={self.skill_level}, arrival_time={self.arrive_time}, available_until={self.available_until}, credibility={self.credibility})'
+
+    def save(self, *args, **kwargs):
+            if not self.expert_id:  # 如果 expert_id 为空，则自动生成
+                self.expert_id = f"EX{self.owner.id}"
+            super().save(*args, **kwargs)

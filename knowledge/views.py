@@ -163,6 +163,19 @@ def submit_answer(request):
         # 更新问题状态
         question.answered = True
         question.answered_by = expert
+        
+        # 从专家的 assigned_tasks 和 assigned_tasks_utilities 中移除该问题及效用值
+        if question in expert.assigned_tasks.all():
+            # 移除问题本身
+            expert.assigned_tasks.remove(question)
+
+            # 移除与该问题关联的效用值
+            expert.assigned_tasks_utilities = [
+                utility for utility in expert.assigned_tasks_utilities 
+                if utility['task_id'] != question.id
+            ]
+        
+        expert.save()
         question.save()
 
         return redirect('expert_dashboard')  # 跳转到专家页面

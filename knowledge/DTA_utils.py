@@ -22,23 +22,34 @@ class DTAAlgorithm:
 			raise ValueError('Unsupported allocation method')
 
 	def _greedy_allocation(self, current_time):
-		# Greedy allocation with multiple allocation rounds
+		# 获取符合条件的可用任务
 		available_tasks = Question.objects.filter(arrival_date__lte=current_time, deadline__gte=current_time, assigned=False)
-		unallocated_tasks = available_tasks[:]
+
+		# 将 QuerySet 转换为列表，以便支持 shuffle
+		unallocated_tasks = list(available_tasks)
+
 		while unallocated_tasks:
+			# 随机打乱任务顺序
 			random.shuffle(unallocated_tasks)
+			
 			new_unallocated_tasks = []
+			
+			# 遍历所有未分配的任务
 			for task in unallocated_tasks:
 				allocated = False
+				# 遍历所有可用专家
 				for expert in Expert.objects.filter(available_until__gte=current_time):
 					if self._assign_task_to_expert(task, expert, current_time):
 						allocated = True
-						break
+						break  # 一旦任务分配给专家，跳出专家循环
 				if not allocated:
 					new_unallocated_tasks.append(task)
+			
+			# 如果没有任务分配成功，则退出循环
 			if len(new_unallocated_tasks) == len(unallocated_tasks):
-				# No task was allocated, break the loop
 				break
+			
+			# 更新未分配任务列表
 			unallocated_tasks = new_unallocated_tasks
 
 	def _basic_threshold_allocation(self, current_time):
@@ -96,9 +107,9 @@ class DTAAlgorithm:
             
 	def _assign_task_to_expert(self, task, expert, current_time):
 		# Check if task can be assigned to this expert
-		if (expert.arrive_time <= task.arrival_date <= expert.available_until) and \
-			len(expert.assigned_tasks.all()) < expert.max_tasks and \
-			expert.skill_level >= task.difficulty and not task.assigned:
+		if ((task.arrival_date <= expert.available_until) and \
+			expert.assigned_tasks.count() < expert.max_tasks and \
+			expert.skill_level >= task.difficulty and not task.assigned):
 			# Adjust utility based on expert's credibility
 			adjusted_utility = task.utility * float(expert.credibility)
 
@@ -112,8 +123,9 @@ class DTAAlgorithm:
 			task.assigned = True
 			task.assigned_by = expert  # Associate the expert with the task
 
-			expert.save()  # Save the expert (to persist the utility list)
-			task.save()  # Save the task
+			task.save()
+			expert.save()
+
 			return True
 		return False
 

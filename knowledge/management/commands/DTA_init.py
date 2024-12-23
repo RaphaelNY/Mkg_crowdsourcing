@@ -45,8 +45,8 @@ class Command(BaseCommand):
         # 如果有未分配的问题，使用DTA算法进行分配
         allocation_method = 'Greedy'  # 或者根据需要选择其他方法
         algorithm = DTAAlgorithm(method=allocation_method)
-
-        for task in unassigned_tasks:
-            algorithm.allocate_tasks(current_time)
+        algorithm.allocate_tasks(current_time)
         
-        self.stdout.write(self.style.SUCCESS(f'{len(unassigned_tasks)} 个问题已分配'))
+        unassigned_tasks = Question.objects.filter(assigned=False, arrival_date__lte=current_time, deadline__gte=current_time)
+        
+        self.stdout.write(self.style.SUCCESS(f'{len(unassigned_tasks)} 个问题未分配'))

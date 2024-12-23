@@ -6,13 +6,12 @@ class KnowledgeConfig(AppConfig):
 
     def ready(self):
         from django.core.management import call_command
-        from .management.commands.DTA_init import Command
         import knowledge.signals  # 导入信号模块
         
-        command = Command()
-        command.handle()
-        
         print("KnowledgeConfig.ready() is being executed")
+        
+        call_command('DTA_init')
+        # call_command('import_questions')
 
         # 检查 Redis 是否已加载数据，避免重复加载
         if os.getenv('RUN_MAIN', None) != 'true':  # 避免开发服务器重复加载
