@@ -391,12 +391,16 @@ def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
 
 
 def questionare(request):
+    # 构造 question.json 文件的路径
+    file_path = os.path.join(settings.BASE_DIR, "question.json")
 
     # 读取文件内容
-    with open(r"C:\Users\86131\Desktop\question.json", "r", encoding="utf-8") as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         questions_data = json.load(file)
 
-
+    # 读取文件内容
+    with open(file_path, "r", encoding="utf-8") as file:
+        questions_data = json.load(file)
 
     # 随机抽取 15 个问题
     selected_questions = random.sample(questions_data, 15)
