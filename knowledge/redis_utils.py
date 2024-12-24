@@ -29,17 +29,23 @@ def get_medical_orgs_by_category(category):
 
 def get_medical_orgs_by_field(field, value):
     """
-    根据指定字段（如 name、level、address、phone、category）查找医疗机构
+    根据指定字段（如 name、level、address、phone、category）模糊查找医疗机构
     """
     if field in ['category', 'level', 'address', 'phone', 'name']:
-        # 对于这些字段，直接使用 Redis 集合进行查询
-        org_ids = redis_client.smembers(f'{field}:{value}')
+        org_ids = set()
 
-    # 返回查找到的医疗机构详细信息
-    return [
+        pattern = f'{field}:*{value}*'  # 模糊查询模式
+        for key in redis_client.scan_iter(match=pattern):
+            org_ids.update(redis_client.smembers(key))
+
+        # 返回查找到的医疗机构详细信息
+        return [
             {'id': org_id, **redis_client.hgetall(org_id)}  # 将 org_id 加入返回数据
             for org_id in org_ids
         ]
+    else:
+        raise ValueError(f"Invalid field: {field}. Valid fields are: ['category', 'level', 'address', 'phone', 'name']")
+
 
 def get_graph_data_for_org(org_id):
     """
