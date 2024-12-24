@@ -1,10 +1,11 @@
 import json
 import random
 from datetime import datetime, timedelta
+import jieba
 from pytz import timezone
-from cemotion import Cegmentor
+# from cemotion import Cegmentor
 from knowledge.models import Question
-from knowledge.redis_utils import analyze_segmentation, check_question_and_generate_answer
+from knowledge.redis_utils import check_question_and_generate_answer
 
 # 设定时区为 Asia/Shanghai
 tz = timezone('Asia/Shanghai')
@@ -30,6 +31,37 @@ def evaluate_question_by_entities_and_relationships(question_analysis):
 
         is_valuable = relevance and clarity and informational_need and practicality
         return is_valuable
+
+def analyze_segmentation(segmentation_result):
+    with open('static/json/extracted_entities_relationships.json', 'r', encoding='utf-8') as f:
+        entities_relationships = json.load(f)
+
+    entities = entities_relationships['entities']
+    relationships = entities_relationships['relationships']
+
+    entity_dict = {entity['label']: entity for entity in entities}
+
+    def analyze_segmentation(segmentation_result, entity_dict, relationships):
+        analysis_result = []
+        for sentence in segmentation_result:
+            sentence_analysis = {"tokens": sentence, "entities": [], "relationships": []}
+            sentence_str = ''.join(sentence)
+            for entity_label in entity_dict.keys():
+                if entity_label in sentence_str:
+                    sentence_analysis["entities"].append(entity_dict[entity_label])
+                    for rel in relationships:
+                        if rel["source"] == entity_label:
+                            sentence_analysis["relationships"].append(rel)
+            analysis_result.append(sentence_analysis)
+        return analysis_result
+
+    analysis_result = analyze_segmentation(segmentation_result, entity_dict, relationships)
+
+    with open('static/json/analysis_result.json', 'w', encoding='utf-8') as f:
+        json.dump(analysis_result, f, ensure_ascii=False, indent=4)
+
+    print("分析结果已存入文件 analysis_result.json")
+
 
 def evaluate_question_difficulty(question_analysis):
 	tokens = question_analysis['tokens']
@@ -64,8 +96,7 @@ def calculate_utility_ratio(is_valuable, difficulty_score, complexity, knowledge
 def checkup_question(content, asker):
     can_or_not_answer = check_question_and_generate_answer(content)
     
-    segmenter = Cegmentor()
-    segmentation_result = segmenter.segment(content)
+    segmentation_result = list(jieba.lcut(content))
     
     analysis_result = analyze_segmentation(segmentation_result)
     

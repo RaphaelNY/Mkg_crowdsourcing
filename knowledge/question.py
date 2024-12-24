@@ -13,7 +13,7 @@ def default_leave_time1():
 
 # 生成问题的脚本内容
 def generate_questions():
-    with open('static/css/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
+    with open('static/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     medical_org_info = [(entry["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"], 
@@ -69,17 +69,17 @@ def generate_questions():
     num_questions_to_save = 200
     selected_questions = random.sample(all_questions, min(num_questions_to_save, len(all_questions)))
 
-    with open('static/css/json/questions.json', 'w', encoding='utf-8') as outfile:
+    with open('static/json/questions.json', 'w', encoding='utf-8') as outfile:
         json.dump(selected_questions, outfile, ensure_ascii=False, indent=4)
 
     print("随机选择的问题已保存到questions.json文件中。")
 
 # 检查问题是否可以回答并生成can_answer.json和cannot_answer.json
 def check_questions():
-    with open('static/css/json/questions.json', 'r', encoding='utf-8') as file:
+    with open('static/json/questions.json', 'r', encoding='utf-8') as file:
         questions = json.load(file)
 
-    with open('static/css/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
+    with open('static/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     medical_org_info = {entry["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]: {
@@ -142,17 +142,17 @@ def check_questions():
         all_can_answer.extend(can_answer)
         all_cannot_answer.extend(cannot_answer)
 
-    with open('static/css/json/can_answer.json', 'w', encoding='utf-8') as can_file:
+    with open('static/json/can_answer.json', 'w', encoding='utf-8') as can_file:
         json.dump(all_can_answer, can_file, ensure_ascii=False, indent=4)
 
-    with open('static/css/json/cannot_answer.json', 'w', encoding='utf-8') as cannot_file:
+    with open('static/json/cannot_answer.json', 'w', encoding='utf-8') as cannot_file:
         json.dump(all_cannot_answer, cannot_file, ensure_ascii=False, indent=4)
 
     print("检查完成，能回答和不能回答的问题已分别保存到can_answer.json和cannot_answer.json文件中。")
 
 # 提取实体与属性
 def extract_entities():
-    with open('static/css/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
+    with open('static/json/ZJMedicalOrg.json', 'r', encoding='utf-8') as file:
         medical_org_data = json.load(file)
 
     entities = []
@@ -207,27 +207,27 @@ def extract_entities():
         "relationships": relationships
     }
 
-    with open('static/css/json/extracted_entities_relationships.json', 'w', encoding='utf-8') as outfile:
+    with open('static/json/extracted_entities_relationships.json', 'w', encoding='utf-8') as outfile:
         json.dump(result, outfile, ensure_ascii=False, indent=4)
 
     print("实体及关系已保存到 extracted_entities_relationships.json 文件中")
 
 # 对问题进行分词
 def segment_questions():
-    with open('static/css/json/questions.json', 'r', encoding='utf-8') as f:
+    with open('static/json/questions.json', 'r', encoding='utf-8') as f:
         list_text = json.load(f)
 
     segmenter = Cegmentor()
     segmentation_result = segmenter.segment(list_text)
-    with open('static/css/json/segmentation_result.json', 'w', encoding='utf-8') as f:
+    with open('static/json/segmentation_result.json', 'w', encoding='utf-8') as f:
         json.dump(segmentation_result, f, ensure_ascii=False, indent=4)
 
 # 将分词结果与实体关系联系起来
 def analyze_segmentation():
-    with open('static/css/json/segmentation_result.json', 'r', encoding='utf-8') as f:
+    with open('static/json/segmentation_result.json', 'r', encoding='utf-8') as f:
         segmentation_result = json.load(f)
 
-    with open('static/css/json/extracted_entities_relationships.json', 'r', encoding='utf-8') as f:
+    with open('static/json/extracted_entities_relationships.json', 'r', encoding='utf-8') as f:
         entities_relationships = json.load(f)
 
     entities = entities_relationships['entities']
@@ -251,7 +251,7 @@ def analyze_segmentation():
 
     analysis_result = analyze_segmentation(segmentation_result, entity_dict, relationships)
 
-    with open('static/css/json/analysis_result.json', 'w', encoding='utf-8') as f:
+    with open('static/json/analysis_result.json', 'w', encoding='utf-8') as f:
         json.dump(analysis_result, f, ensure_ascii=False, indent=4)
 
     print("分析结果已存入文件 analysis_result.json")
@@ -259,7 +259,7 @@ def analyze_segmentation():
 # 评估问题的价值和难度
 def evaluate_questions():
     def load_data():
-        with open(r'static/css/json/analysis_result.json', 'r', encoding='utf-8') as f:
+        with open(r'static/json/analysis_result.json', 'r', encoding='utf-8') as f:
             analysis_result = json.load(f)
         return analysis_result
 
@@ -335,7 +335,7 @@ def evaluate_questions():
                 "relationships": question_analysis['relationships']
             })
 
-        with open(r'static/css/json/evaluated_questions.json', 'w', encoding='utf-8') as f:
+        with open(r'static/json/evaluated_questions.json', 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=4)
 
         print("评估结果已存入文件 evaluated_questions.json")
@@ -345,10 +345,10 @@ def evaluate_questions():
 
 # 过滤数据并生成最终文件
 def filter_questions():
-    with open(r'static/css/json/evaluated_questions.json', 'r', encoding='utf-8') as file:
+    with open(r'static/json/evaluated_questions.json', 'r', encoding='utf-8') as file:
         evaluated_questions = json.load(file)
 
-    with open(r'static/css/json/can_answer.json', 'r', encoding='utf-8') as file:
+    with open(r'static/json/can_answer.json', 'r', encoding='utf-8') as file:
         can_answers = json.load(file)
 
     def standardize_question(question):
@@ -378,7 +378,7 @@ def filter_questions():
             }
         )
 
-    with open(r'static/css/json/filtered_questions_with_answers.json', 'w', encoding='utf-8') as file:
+    with open(r'static/json/filtered_questions_with_answers.json', 'w', encoding='utf-8') as file:
         json.dump(filtered_data_with_answers, file, indent=4, ensure_ascii=False)
 
     print("数据已成功过滤并保存到 filtered_questions_with_answers.json 文件中。")

@@ -5,6 +5,8 @@ from redisgraph import Node, Graph
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from knowledge.management.commands.load_relation_from_medicaldata import extract_entities
+
 
 class Command(BaseCommand):
     help = "Load medical data into Redis and RedisGraph"
@@ -22,6 +24,7 @@ class Command(BaseCommand):
 
         # 数据文件路径
         data_file_path = os.path.join(settings.BASE_DIR, 'static/json/ZJMedicalOrg.json')
+        extract_entities()
 
         # 检查文件是否存在
         if not os.path.exists(data_file_path):
@@ -35,7 +38,7 @@ class Command(BaseCommand):
         # 遍历每个医疗机构，并存储数据到 Redis 和 RedisGraph
         for org in data:
             org_id = org.get('@id')
-            name = org.get('http://www.w3.org/2000/01/rdf-schema#label', [{}])[0].get('@value', '')
+            name = org.get('http://www.w3.org/2000/01/rdf-schema#label', [{}])[0].get('@value', '未知')
             category = org.get('http://cngraph.openkg.cn/#类别', [{}])[0].get('@value', '')
             level = org.get('http://cngraph.openkg.cn/#级别', [{}])[0].get('@value', '')
             address = org.get('http://cnschema.openkg.cn/#地址', [{}])[0].get('@value', '')
