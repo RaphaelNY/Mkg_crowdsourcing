@@ -40,16 +40,16 @@ def analyze_segmentation(segmentation_result):
 
     def analyze_segmentation(segmentation_result, entity_dict, relationships):
         analysis_result = []
-        for sentence in segmentation_result:
-            sentence_analysis = {"tokens": sentence, "entities": [], "relationships": []}
-            sentence_str = ''.join(sentence)
-            for entity_label in entity_dict.keys():
-                if entity_label in sentence_str:
-                    sentence_analysis["entities"].append(entity_dict[entity_label])
-                    for rel in relationships:
-                        if rel["source"] == entity_label:
-                            sentence_analysis["relationships"].append(rel)
-            analysis_result.append(sentence_analysis)
+        sentence = segmentation_result
+        sentence_analysis = {"tokens": sentence, "entities": [], "relationships": []}
+        sentence_str = ''.join(sentence)
+        for entity_label in entity_dict.keys():
+            if entity_label in sentence_str:
+                sentence_analysis["entities"].append(entity_dict[entity_label])
+                for rel in relationships:
+                    if rel["source"] == entity_label:
+                        sentence_analysis["relationships"].append(rel)
+        analysis_result.append(sentence_analysis)
         return analysis_result
 
     analysis_result = analyze_segmentation(segmentation_result, entity_dict, relationships)
@@ -90,9 +90,9 @@ def calculate_utility_ratio(is_valuable, difficulty_score, complexity, knowledge
 def checkup_question(content, asker):
     can_or_not_answer = check_question_and_generate_answer(content)
     
-    # segmentation_result = list(jieba.lcut(content))
-    segmenter = Cegmentor()
-    segmentation_result = segmenter.segment(content)
+    segmentation_result = list(jieba.lcut(content))
+    # segmenter = Cegmentor()
+    # segmentation_result = segmenter.segment(content)
     analysis_result = analyze_segmentation(segmentation_result)
     
     results = []
@@ -136,7 +136,7 @@ def checkup_question(content, asker):
                 "difficulty": item["difficulty_score"],
                 "assigned": False,
                 "answered_by": None,
-                "answered": answer_dict.get(standardize_question(item["question"]), "No answer available") != "No answer available",
+                "answered": False,
                 "answer": answer_dict.get(standardize_question(item["question"]), "No answer available")
             }
         )
@@ -156,3 +156,7 @@ def checkup_question(content, asker):
         asked_by=asker
     )
     question.save()
+    print(f"Question {question.tasks_id} saved.")
+    print(question.content)
+    print(question.answer)
+    print(question.answered)

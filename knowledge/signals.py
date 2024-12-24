@@ -28,7 +28,7 @@ def handle_question_submission(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Question)
 def handle_expert_answer_submission(sender, instance, created, **kwargs):
     if instance.answered:  # 如果问题已回答
-        print(f"Expert answered the question: {instance.title}")
+        print(f"Expert answered the question: {instance.content}")
         current_time = timezone.now()
         dta_algorithm = DTAAlgorithm(method='Greedy')  # 选择分配方法
         dta_algorithm.allocate_tasks(current_time)
