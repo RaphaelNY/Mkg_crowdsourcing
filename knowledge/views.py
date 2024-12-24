@@ -5,6 +5,7 @@ import urllib
 from django.db import transaction
 from knowledge.DTA_utils import DTAAlgorithm
 from knowledge.models import NormalUser, Asker, Expert, Question
+from knowledge.question_utils import checkup_question
 from .redis_utils import get_graph_data_for_org, get_medical_org_by_id, get_medical_orgs_by_category, get_graph_data, get_medical_orgs_by_field
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
@@ -84,14 +85,7 @@ def handle_submit(request):
             ownername = NormalUser.objects.get(name=normal_user)
             asker = Asker.objects.get(owner=ownername)
 
-            # 创建新的 Question 对象并保存
-            question = Question(
-                content=content,
-                arrival_date=timezone.now(),
-                deadline=timezone.now() + timedelta(days=3),  # 默认3天的截止时间
-                asked_by=asker
-            )
-            question.save()
+            checkup_question(content, asker)
 
     return redirect('inquirer_dashboard')
 

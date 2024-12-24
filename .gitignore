@@ -17,3 +17,4 @@ knowledge/migrations/*.py
 question.json
 datebase/ZJ-medicalorg
 datebase/acgn.entities.final_with_at_id
+static/json/*.json
