@@ -1,3 +1,4 @@
+import jieba
 import redis
 from redisgraph import Graph, Node, Edge
 from django.conf import settings
@@ -69,54 +70,72 @@ def get_graph_data():
 def check_question_and_generate_answer(question):
     can_or_not_answer = []
 
-    # 获取所有医疗机构的键
-    all_org_keys = redis_client.keys("*")
-    print(all_org_keys)
+    # 提取问题中可能的医疗机构关键词（简单分词，或用正则等更复杂逻辑）
+    question_keywords = set(jieba.lcut(question))
+    print(f"Question keywords: {question_keywords}")
 
-    # 遍历 Redis 中的所有医疗机构数据
-    for org_id in all_org_keys:
+    # 使用 Redis 的通配符查找可能的机构
+    matching_org_ids = []
+    for keyword in question_keywords:
+        # 检查是否存在名称相关的集合
+        # 模糊检索所有包含 keyword 的集合键
+        matching_keys = redis_client.scan_iter(match=f'name:*{keyword}*')
+
+        potential_org_ids = set()
+        for key in matching_keys:
+            # 获取匹配到的集合中的所有值
+            potential_org_ids.update(redis_client.smembers(key))
+        if potential_org_ids:
+            matching_org_ids.extend(potential_org_ids)
+
+    # 去重
+    matching_org_ids = list(set(matching_org_ids))
+
+    if not matching_org_ids:
+        # 如果没有匹配到任何机构
+        return [{
+            "question": question,
+            "answer": None
+        }]
+
+    # 遍历匹配的机构并检查问题的具体属性
+    for org_id in matching_org_ids:
         # 获取医疗机构的详细信息
         info = redis_client.hgetall(org_id)
-        name = info.get('name', '')
 
-        # 检查问题是否包含医疗机构名称
-        if name and name in question:
-            if "类别" in question and info.get("category"):
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": info["category"]
-                })
-            elif "级别" in question and info.get("level"):
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": info["level"]
-                })
-            elif "地址" in question and info.get("address"):
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": info["address"]
-                })
-            elif "电话号码" in question and info.get("phone"):
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": info["phone"]
-                })
-            elif "名称" in question:
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": name
-                })
-            else:
-                can_or_not_answer.append({
-                    "question": question,
-                    "answer": None
-                })
-            break
-    else:
-        # 如果没有找到匹配的医疗机构
+        # 检查问题中是否包含需要查询的属性
+        if "类别" in question and "category" in info:
+            can_or_not_answer.append({
+                "question": question,
+                "answer": info["category"]
+            })
+        elif "级别" in question and "level" in info:
+            can_or_not_answer.append({
+                "question": question,
+                "answer": info["level"]
+            })
+        elif "地址" in question and "address" in info:
+            can_or_not_answer.append({
+                "question": question,
+                "answer": info["address"]
+            })
+        elif "电话号码" in question and "phone" in info:
+            can_or_not_answer.append({
+                "question": question,
+                "answer": info["phone"]
+            })
+        elif "名称" in question:
+            can_or_not_answer.append({
+                "question": question,
+                "answer": info["name"]
+            })
+
+    # 如果找不到匹配的问题答案，返回默认结果
+    if not can_or_not_answer:
         can_or_not_answer.append({
             "question": question,
             "answer": None
         })
 
+    print(f"Can or not answer: {can_or_not_answer}")
     return can_or_not_answer

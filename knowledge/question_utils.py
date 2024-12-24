@@ -2,13 +2,10 @@ import json
 import random
 from datetime import datetime, timedelta
 import jieba
-from pytz import timezone
+from django.utils import timezone
 # from cemotion import Cegmentor
 from knowledge.models import Question
 from knowledge.redis_utils import check_question_and_generate_answer
-
-# 设定时区为 Asia/Shanghai
-tz = timezone('Asia/Shanghai')
 
 def standardize_question(question):
     return question.replace(" ", "")
@@ -18,7 +15,7 @@ def generate_random_asker():
 
 # 定义默认的截止时间函数
 def default_leave_time1():
-    return datetime.now(tz) + timedelta(days=7)
+    return datetime.now() + timedelta(days=7)
 
 def evaluate_question_by_entities_and_relationships(question_analysis):
         entities = question_analysis['entities']
@@ -56,11 +53,8 @@ def analyze_segmentation(segmentation_result):
         return analysis_result
 
     analysis_result = analyze_segmentation(segmentation_result, entity_dict, relationships)
-
-    with open('static/json/analysis_result.json', 'w', encoding='utf-8') as f:
-        json.dump(analysis_result, f, ensure_ascii=False, indent=4)
-
-    print("分析结果已存入文件 analysis_result.json")
+    
+    return analysis_result
 
 
 def evaluate_question_difficulty(question_analysis):
@@ -96,8 +90,9 @@ def calculate_utility_ratio(is_valuable, difficulty_score, complexity, knowledge
 def checkup_question(content, asker):
     can_or_not_answer = check_question_and_generate_answer(content)
     
-    segmentation_result = list(jieba.lcut(content))
-    
+    # segmentation_result = list(jieba.lcut(content))
+    segmenter = Cegmentor()
+    segmentation_result = segmenter.segment(content)
     analysis_result = analyze_segmentation(segmentation_result)
     
     results = []
@@ -147,7 +142,7 @@ def checkup_question(content, asker):
         )
     # 创建新的 Question 对象并保存
     question = Question(
-        task_id=filtered_data_with_answers[0]["tasks_id"],
+        tasks_id=filtered_data_with_answers[0]["tasks_id"],
         title=filtered_data_with_answers[0]["title"],
         content=filtered_data_with_answers[0]["content"],
         utility=filtered_data_with_answers[0]["utility"],
