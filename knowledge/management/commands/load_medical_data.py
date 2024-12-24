@@ -21,7 +21,7 @@ class Command(BaseCommand):
         graph = Graph(settings.REDIS_GRAPH_NAME, redis_client)
 
         # 数据文件路径
-        data_file_path = os.path.join(settings.BASE_DIR, 'ZJMedicalOrg.json')
+        data_file_path = os.path.join(settings.BASE_DIR, 'static/json/ZJMedicalOrg.json')
 
         # 检查文件是否存在
         if not os.path.exists(data_file_path):

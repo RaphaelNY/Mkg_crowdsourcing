@@ -392,7 +392,7 @@ def em_algorithm(questions, user_answers, max_iter=10, tolerance=1e-4):
 
 def questionare(request):
     # 构造 question.json 文件的路径
-    file_path = os.path.join(settings.BASE_DIR, "question.json")
+    file_path = os.path.join(settings.BASE_DIR, "static/json/cssquestion.json")
 
     # 读取文件内容
     with open(file_path, "r", encoding="utf-8") as file:
